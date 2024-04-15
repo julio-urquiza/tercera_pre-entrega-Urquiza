@@ -1,0 +1,30 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    <main class="container">
+        <h1 class="text-center">Profesores</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>nombre</th>
+                    <th>legajo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for n in profesores %}
+                <tr>
+                    <td>{{n.id}}</td>
+                    <td>{{n.nombre}}</td>
+                    <td>{{n.legajo}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="{% url 'alta_profesor' %}">Registrar un profesor</a>
+        <a class="btn btn-primary" href="{% url 'buscar_profesor' %}">Buscar un profesor</a>
+    </main>
+
+{% endblock %}
